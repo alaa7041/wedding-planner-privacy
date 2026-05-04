@@ -9,5 +9,3 @@ Our Privacy Policy Generator can help you make sure that your business complies 
 Fill in the blank spaces below and we will create a personalized website Privacy Policy for your business. No account registration required. Simply generate & download a Privacy Policy in seconds!
 
 Small remark when filling in this Privacy Policy generator: Not all parts of this Privacy Policy might be applicable to your website. When there are parts that are not applicable, these can be removed. Optional elements can be selected in step 2. The accuracy of the generated Privacy Policy on this website is not legally binding. Use at your own risk.
-
-Looking for Terms and Conditions? Check out Terms and Conditions Generator.
