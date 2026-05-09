@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support — Wedding Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory: #faf7f2;
+      --cream: #f2ece1;
+      --gold: #b8955a;
+      --gold-light: #d4ae78;
+      --dark: #2a2118;
+      --muted: #7a6e60;
+      --border: #e0d5c5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--ivory);
+      color: var(--dark);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+      min-height: 100vh;
+    }
+
+    header {
+      background: var(--dark);
+      padding: 60px 40px 50px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(184,149,90,0.18) 0%, transparent 70%);
+    }
+    .header-ornament {
+      font-size: 22px;
+      color: var(--gold);
+      letter-spacing: 8px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 300;
+      color: #faf7f2;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+    header p {
+      color: var(--gold-light);
+      font-size: 0.82rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .gold-line {
+      width: 60px;
+      height: 1px;
+      background: var(--gold);
+      margin: 20px auto 0;
+    }
+
+    nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      padding: 0 40px;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(42,33,24,0.05);
+    }
+    nav a {
+      display: inline-block;
+      padding: 16px 28px;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: all 0.25s;
+    }
+    nav a:hover, nav a.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 70px 40px 100px;
+    }
+
+    /* ── CONTACT HERO ── */
+    .contact-hero {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 50px 48px;
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+      margin-bottom: 70px;
+      animation: fadeUp 0.4s ease both;
+    }
+    .contact-icon {
+      font-size: 3rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 4px;
+    }
+    .contact-info h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      margin-bottom: 10px;
+    }
+    .contact-info p { font-size: 0.94rem; color: var(--muted); margin-bottom: 24px; }
+    .contact-info a.email-btn {
+      display: inline-block;
+      background: var(--dark);
+      color: var(--ivory);
+      padding: 13px 28px;
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .contact-info a.email-btn:hover { background: #3d2f1e; }
+
+    /* ── FAQ ── */
+    .faq-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+      animation: fadeUp 0.4s ease 0.1s both;
+    }
+    .faq-header span {
+      font-size: 0.72rem;
+      letter-spacing: 3px;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .faq-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+    }
+    .faq-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.4s ease both;
+    }
+    .faq-item:nth-child(1) { animation-delay: 0.15s; }
+    .faq-item:nth-child(2) { animation-delay: 0.2s; }
+    .faq-item:nth-child(3) { animation-delay: 0.25s; }
+    .faq-item:nth-child(4) { animation-delay: 0.3s; }
+    .faq-item:nth-child(5) { animation-delay: 0.35s; }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 22px 4px;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Jost', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--dark);
+      gap: 16px;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--gold);
+      transition: transform 0.3s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.3s ease;
+      padding: 0 4px;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 4px 20px;
+    }
+    .faq-answer p {
+      font-size: 0.94rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── RESPONSE TIME ── */
+    .response-strip {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px;
+      margin-top: 60px;
+      font-size: 0.88rem;
+      color: var(--muted);
+      animation: fadeUp 0.4s ease 0.4s both;
+    }
+    .response-strip strong { color: var(--dark); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      background: var(--dark);
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+    }
+    footer a { color: var(--gold-light); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      color: #faf7f2;
+      letter-spacing: 3px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 640px) {
+      main { padding: 50px 24px 80px; }
+      header { padding: 50px 24px 40px; }
+      nav a { padding: 14px 14px; font-size: 0.72rem; letter-spacing: 1px; }
+      .contact-hero { flex-direction: column; gap: 24px; padding: 32px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <span class="header-ornament">✦ ✦ ✦</span>
+  <h1>Support</h1>
+  <p>Wedding Planner — Vision Co</p>
+  <div class="gold-line"></div>
+</header>
+
+<nav>
+  <a href="index.html">Privacy Policy</a>
+  <a href="support.html" class="active">Support</a>
+</nav>
+
+<main>
+
+  <div class="contact-hero">
+    <div class="contact-icon">✉</div>
+    <div class="contact-info">
+      <h2>We're Here to Help</h2>
+      <p>Have a question about the app, a feature request, or encountered an issue? Send us a message and we'll get back to you as soon as possible.</p>
+      <a href="mailto:flutterpostman@gmail.com" class="email-btn">Contact Support</a>
+    </div>
+  </div>
+
+  <div class="faq-header">
+    <span>FAQ</span>
+    <h2>Common Questions</h2>
+  </div>
+
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I add vendors or service providers to my event?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Open the app and navigate to your event. Tap the "Services" or "Vendors" section, then use the search or browse feature to find providers. Tap on a provider to view their details and add them to your event planning list.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        Is my data backed up or synced across devices?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Currently, all your planning data is stored locally on your device. We recommend keeping regular backups using iCloud or your device's backup solution. Cross-device sync may be considered in a future update.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        The app crashed or isn't opening — what should I do?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>First, try closing the app completely and reopening it. If the issue persists, restart your device. Make sure you have the latest version installed from the App Store. If the problem continues, please contact our support team with your device model and iOS version.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I delete my account or app data?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Since all data is stored locally on your device, simply deleting the app from your iPhone will remove all associated data. Go to Settings → General → iPhone Storage, find Wedding Planner, and tap "Delete App."</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggle(this)">
+        How do I request a new feature or report a bug?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We love hearing from our users! Please email us at flutterpostman@gmail.com with a description of the feature you'd like or the bug you encountered. Include your iOS version and device model when reporting bugs to help us resolve them faster.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="response-strip">
+    <strong>Response Time:</strong> We typically respond to all support inquiries within <strong>1–2 business days</strong>. For urgent issues, please mention "Urgent" in your email subject line.
+  </div>
+
+</main>
+
+<footer>
+  <span class="footer-logo">Wedding Planner</span>
+  <p>© 2026 Abdulaziz Almahfuth — Vision Co · <a href="index.html">Privacy Policy</a></p>
+</footer>
+
+<script>
+  function toggle(btn) {
+    const item = btn.closest('.faq-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+</script>
+
+</body>
+</html>
